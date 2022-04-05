@@ -24,6 +24,7 @@ import {
   scan,
   shareReplay,
   switchMap,
+  switchMapTo,
   tap,
 } from 'rxjs/operators';
 
@@ -147,14 +148,15 @@ fromEvent(button, 'click')
 // numbers$.next(2);
 // numbers$.complete();  // <-- Needed by the reduce!
 
-// -------------- switchMap  --------------
+// -------------- switchMap / switchMapTo  --------------
 // Unsubscribes from prior inner Observable and switches to the new one
-// fromEvent(document, 'click')
-//   .pipe(
-//     // restart counter on every click
-//     switchMap(() => interval(1500))
-//   )
-//   .subscribe((val) => console.log('switchMap: ', val));
+fromEvent(document, 'click')
+  .pipe(
+    // restart counter on every click
+    switchMap(() => interval(1500))
+    // switchMapTo(interval(1500))
+  )
+  .subscribe((val) => console.log('switchMap: ', val));
 
 // -------------- mergeMap  --------------
 // execute inner Observables in parallel
