@@ -150,13 +150,13 @@ fromEvent(button, 'click')
 
 // -------------- switchMap / switchMapTo  --------------
 // Unsubscribes from prior inner Observable and switches to the new one
-fromEvent(document, 'click')
-  .pipe(
-    // restart counter on every click
-    switchMap(() => interval(1500))
-    // switchMapTo(interval(1500))
-  )
-  .subscribe((val) => console.log('switchMap: ', val));
+// fromEvent(document, 'click')
+//   .pipe(
+//     // restart counter on every click
+//     switchMap(() => interval(1500))
+//     // switchMapTo(interval(1500))
+//   )
+//   .subscribe((val) => console.log('switchMap: ', val));
 
 // -------------- mergeMap  --------------
 // execute inner Observables in parallel
